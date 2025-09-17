@@ -1,14 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrickIt 🎯 - Login</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <h1>Login</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Login</button>
-    </form>
+    <div class="container">
+        <header class="header">
+            <h1>Login to TrickIt 🎯</h1>
+            <p>Enter your credentials to access your tasks.</p>
+        </header>
+
+        <main class="main-content">
+            <div class="feature-card">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <div class="nav" style="margin-top: 2rem;">
+                        <button type="submit" class="btn">Login</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+        
+        <footer class="footer">
+            <p>Built with ❤️ using Django | &copy; 2025 TrickIt. All rights reserved.</p>
+            <p>Version 1.0 | Making productivity beautiful</p>
+        </footer>
+    </div>
 </body>
 </html>
