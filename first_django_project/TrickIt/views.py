@@ -1,4 +1,6 @@
 from django.shortcuts import render
 
-def home(request):
-    return render(request, "home.html")
+def task_list(request):
+    # Your view logic goes here
+    # Render the existing home.html template
+    return render(request, 'TrickIt/home.html')
