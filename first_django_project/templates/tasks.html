@@ -9,6 +9,21 @@
     {% for task in tasks %}
         <li>
             {{ task.title }}
+            {% if task.complete %}
+                - Complete
+            {% else %}
+                - Incomplete
+            {% endif %}
+            
+            <form action="{% url 'update-task' task.id %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit">Toggle Complete</button>
+            </form>
+            
+            <form action="{% url 'delete-task' task.id %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit">Delete</button>
+            </form>
         </li>
     {% endfor %}
     </ul>
