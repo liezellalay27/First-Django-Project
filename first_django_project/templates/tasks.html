@@ -5,25 +5,24 @@
 </head>
 <body>
     <h1>My Tasks</h1>
+    
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Add Task">
+    </form>
+
     <ul>
     {% for task in tasks %}
         <li>
-            {{ task.title }}
             {% if task.complete %}
-                - Complete
+                <span style="text-decoration: line-through;">{{ task.title }}</span>
             {% else %}
-                - Incomplete
+                <span>{{ task.title }}</span>
             {% endif %}
             
-            <form action="{% url 'update-task' task.id %}" method="post" style="display:inline;">
-                {% csrf_token %}
-                <button type="submit">Toggle Complete</button>
-            </form>
-            
-            <form action="{% url 'delete-task' task.id %}" method="post" style="display:inline;">
-                {% csrf_token %}
-                <button type="submit">Delete</button>
-            </form>
+            <a href="{% url 'update-task' task.id %}">Edit</a>
+            <a href="{% url 'delete-task' task.id %}">Delete</a>
         </li>
     {% endfor %}
     </ul>
