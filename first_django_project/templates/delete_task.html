@@ -1,15 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Update Task</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrickIt 🎯 - Update Task</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <h1>Update Task</h1>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Update">
-    </form>
-    <a href="{% url 'task-list' %}">Cancel</a>
+    <div class="container">
+        <header class="header">
+            <h1>Update Task ✏️</h1>
+            <p>Make changes to your task below.</p>
+        </header>
+
+        <main class="main-content">
+            <div class="feature-card">
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <div style="margin-top: 2rem;">
+                        <button type="submit" class="btn">Update Task</button>
+                    </div>
+                </form>
+                <div style="margin-top: 1rem; text-align: center;">
+                    <a href="{% url 'task-list' %}">Cancel</a>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="footer">
+            <p>Built with ❤️ using Django | &copy; 2025 TrickIt. All rights reserved.</p>
+            <p>Version 1.0 | Making productivity beautiful</p>
+        </footer>
+    </div>
 </body>
 </html>
