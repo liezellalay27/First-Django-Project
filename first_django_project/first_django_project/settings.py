@@ -37,8 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
-    'TrickIt',  # Your custom app
+    'TrickIt.apps.TrickitConfig', # Add this line
 ]
 
 MIDDLEWARE = [
