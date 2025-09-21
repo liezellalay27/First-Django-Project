@@ -10,7 +10,6 @@
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
         <header class="header">
             <h1>Welcome to TrickIt 🎯</h1>
             <p>Your smart and beautiful todo list application built with Django</p>
@@ -20,36 +19,32 @@
                     <a href="{% url 'task-list' %}" class="btn">Go to My Tasks</a>
                     <a href="{% url 'logout' %}" class="btn btn-outline">Logout</a>
                 {% else %}
-                    <a href="{% url 'login' %}" class="btn">Get Started</a>
+                    <a href="{% url 'register' %}" class="btn">Get Started</a>
+                    <a href="{% url 'login' %}" class="btn btn-outline">Login</a>
                     <a href="/admin/" class="btn btn-outline">Admin Panel</a>
                 {% endif %}
             </div>
         </header>
 
-        <!-- Main Content -->
         <main class="main-content">
-            <!-- Feature 1 -->
             <div class="feature-card">
                 <div class="feature-icon">📝</div>
                 <h3>Smart Task Management</h3>
                 <p>Create, edit, and organize your tasks with ease. Mark them as complete and keep track of your progress.</p>
             </div>
 
-            <!-- Feature 2 -->
             <div class="feature-card">
                 <div class="feature-icon">🔐</div>
                 <h3>Secure & Private</h3>
                 <p>Your tasks are private to you. Secure user authentication ensures your data stays protected.</p>
             </div>
 
-            <!-- Feature 3 -->
             <div class="feature-card">
                 <div class="feature-icon">🎨</div>
                 <h3>Beautiful Interface</h3>
                 <p>Enjoy a clean, modern design that makes managing your tasks a pleasure, not a chore.</p>
             </div>
 
-            <!-- Feature 4 -->
             <div class="feature-card">
                 <div class="feature-icon">⚡</div>
                 <h3>Lightning Fast</h3>
@@ -57,18 +52,16 @@
             </div>
         </main>
 
-        <!-- Stats -->
         <div class="feature-card">
             <h3>Ready to Boost Your Productivity?</h3>
             <p>Join thousands of users who are already getting things done with TrickIt.</p>
             <div style="margin-top: 2rem;">
-                <a href="{% if user.is_authenticated %}{% url 'task-list' %}{% else %}{% url 'login' %}{% endif %}" class="btn">
+                <a href="{% if user.is_authenticated %}{% url 'task-list' %}{% else %}{% url 'register' %}{% endif %}" class="btn">
                     {% if user.is_authenticated %}Continue Your Journey{% else %}Start Now - It's Free{% endif %}
                 </a>
             </div>
         </div>
 
-        <!-- Footer -->
         <footer class="footer">
             <p>Built with ❤️ using Django | &copy; 2025 TrickIt. All rights reserved.</p>
             <p>Version 1.0 | Making productivity beautiful</p>
