@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
-from .models import Task
+from .models import Task # This is the only import needed for Task
 from .forms import TaskForm
 # Make sure you import the Task model
 from .models import Task 
@@ -56,7 +56,8 @@ def register(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect("task-list")  # Redirect to the task list after successful sign-up
+            return redirect("task-list")
     else:
         form = UserCreationForm()
-    return render(request, "register.html", {"form": form})
+    # Update this line to include the 'registration' folder
+    return render(request, "registration/register.html", {"form": form}) 
