@@ -1,15 +1,16 @@
+# TrickIt/views.py
+
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
-from .models import Task # This is the only import needed for Task
+from .models import Task
 from .forms import TaskForm
-# Make sure you import the Task model
-from .models import Task 
 
 def home(request):
     return render(request, 'home.html')
 
+@login_required
 def task_list(request):
     tasks = Task.objects.filter(user=request.user).order_by('complete', '-created_at')
     form = TaskForm()
@@ -59,5 +60,5 @@ def register(request):
             return redirect("task-list")
     else:
         form = UserCreationForm()
-    # Update this line to include the 'registration' folder
-    return render(request, "registration/register.html", {"form": form}) 
+    # Correct path to the register.html file
+    return render(request, "registration/register.html", {"form": form})

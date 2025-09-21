@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'TrickIt.apps.TrickitConfig', # Add this line
+    'TrickIt', # Correct way to register your app
 ]
 
 MIDDLEWARE = [
@@ -66,6 +66,12 @@ TEMPLATES = [
         },
     },
 ]
+
+# Add these lines to make the login and logout functionality work
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'task-list'
+LOGOUT_REDIRECT_URL = 'home'
+
 
 WSGI_APPLICATION = 'first_django_project.wsgi.application'
 
